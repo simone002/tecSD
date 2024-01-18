@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h2>libri presenti</h2>
+
+        <form th:each="book : ${books}" action="/form" method="POST">
+            id: <span th:text="${book.id}"></span>
+            isbn: <span th:text="${book.isbn}"></span>
+            titolo: <span th:text="${book.titolo}"></span>
+            autore: <span th:text="${book.autore}"></span>
+            prezzo: <span th:text="${book.prezzo}"></span>
+            <input type="submit" name="action" value="Modifica">
+            <input type="submit" name="action" value="Rimuovi">
+            <input type="hidden" name="id" th:value="${book.id}">
+
+        </form>
+
+        <br><a href="/"><button>torna alla home</button></a>
+    </body>
+</html>

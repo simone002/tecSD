@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <h2> form di aggiornamento</h2>
+
+        <form action="/update" method="POST" th:object="${book}">
+             <input type="hidden" th:field="*{id}">
+            isbn: <input type="text" th:field="*{isbn}">
+            titolo: <input type="text" th:field="*{titolo}">
+            autore: <input type="text" th:field="*{autore}">
+            prezzo: <input type="text" th:field="*{prezzo}">
+            <button>salva modifiche</button>
+
+            <br><a href="/"><button>torna alla home</button></a>
+        </form>
+    </body>
+</html>
