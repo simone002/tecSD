@@ -122,3 +122,10 @@ package com.example.student.model;
         return "redirect:/read";
     }
 	
+	dependecies:
+	
+	spring security 
+	mysql driver
+	spring data jpa
+	thymeleaf 
+	spring web

@@ -1,0 +1,14 @@
+<h2>Dettagli</h2>
+    <p>
+        ID: <span th:text="${product.id}"></span>
+        Nome: <span th:text="${product.nome_prodotto}"></span>
+        Giacenza: <span th:text="${product.giacenza}"></span>
+        Prezzo: <span th:text="${product.prezzo}"></span>
+    </p>
+        <br>
+        <form action="/edit" method="GET">
+            <button>edit</button>
+            <input type="hidden" name="id" th:value="${product.id}"/>
+        </form>
+
+        <a href="/"><button>Torna alla home</button></a>

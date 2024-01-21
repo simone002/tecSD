@@ -1,4 +1,3 @@
-
 <h1>Giocatore {{$player->id}}</h1>
 <b>Nome:</b> {{$player->name}} <br>
 @if ($player->games->count())

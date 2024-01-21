@@ -1,0 +1,12 @@
+<h2>Autori</h2>
+
+<form th:each="a:${authors}">
+    Nome: <span th:text="${a.nome}"></span>
+    <button formaction="/show">Dettagli</button>
+    <button formaction="/edit">Edita</button>
+    <input type="hidden" name="id" th:value="${a.id}">
+</form> 
+        
+<form action="/create"> 
+    <button>inserisci nuovo autore</button>
+</form>

@@ -67,7 +67,7 @@ class PlayerController extends Controller
     public function destroy(Player $player)
     {
         $player->delete();
-        return redirect('players');
+        return redirect('/players');
     }
 
     public function destroyAll()

@@ -1,0 +1,16 @@
+<h2>Modifica</h2>
+        
+        <form action="/update" method="POST" th:object="${product}">
+            Nome:<input type="text" th:field="*{nome_prodotto}"><br>
+            Giacenza:<input type="text" th:field="*{giacenza}"><br>
+            Prezzo:<input type="text" th:field="*{prezzo}"><br><br>
+            <input type="hidden" name="id" th:value="*{id}"/>
+            <button>Salve modifiche</button>
+        </form>
+        <br>
+        <form action="/delete" method="POST">
+            <button>Ellimina</button>
+            <input type="hidden" name="id" th:value="${product.id}" />
+        </form>
+        
+        <a href="/"><button>Torna alla home</button></a>
