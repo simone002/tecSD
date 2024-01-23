@@ -1,0 +1,18 @@
+<h2>Libro: <span th:text="${book.id}"></span></h2>
+titolo: <span th:text="${book.titolo}"></span> <br>
+anno: <span th:text="${book.anno}"></span><br>
+prezzo: <span th:text="${book.prezzo}"></span><br>
+nome autore: <span th:text="${author.nome}"></span>
+
+
+<form action="/books/edit">
+    <input type="hidden" name="id" th:value="${book.id}">
+    <button>edit</button>
+</form>
+
+<form action="/books/maggiora" method="POST">
+    <input type="hidden" name="id" th:value="${book.id}">
+    <button>maggiora</button>
+</form>
+
+<a href="/"><button>torna alla home</button></a>

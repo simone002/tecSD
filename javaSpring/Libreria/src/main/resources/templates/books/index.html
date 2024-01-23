@@ -1,0 +1,11 @@
+<h2>Libri</h2>
+
+<form th:each="b:${books}">
+    <ul>
+        <li> titolo: <span th:text="${b.titolo}"></span></li>
+        <button formaction="books/show">mostra dettagli</button>
+        <input type="hidden" name="id" th:value="${b.id}">
+    </ul>
+</form>
+
+<a href="/"><button>torna alla home</button></a>

@@ -1,0 +1,11 @@
+
+<form th:object="${author}" method="post">
+    <input type="text" name="nome" th:value="*{nome}" required><br>
+    <input type="text" name="b_date" th:value="*{b_date}" required><br>
+    <input type="text" name="country" th:value="*{country}" required><br>
+    <button formaction="/authors/update" method="POST">update</button>
+    <button formaction="/authors/delete" method="POST">delete</button>
+    <input type="hidden" name="id" th:value="*{id}" required><br>
+</form>
+
+<a href="/"><button>torna alla home</button></a>

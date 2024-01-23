@@ -1,0 +1,23 @@
+<h2>Autore: <span th:text="${author.id}"></span></h2>
+Nome: <span th:text="${author.nome}"></span> <br>
+anno di nascita: <span th:text="${author.b_date}"></span><br>
+paese: <span th:text="${author.country}"></span>
+
+<h2>Libri: </h2>
+
+    <div th:if="${author != null}"> 
+        <ul>
+            <li th:each="book : ${author.books}">
+                <a th:href="@{/books/show(id=${book.id})}" th:text="${book.titolo}"></a>
+            </li>
+        </ul>
+    </div>
+
+<form action="/authors/edit">
+    <input type="hidden" name="id" th:value="${author.id}">
+    <button>edit</button>
+</form>
+
+<a href="/"><button>torna alla home</button></a>
+
+

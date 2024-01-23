@@ -2,68 +2,70 @@ package com.example.Libreria.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Libreria.models.Author;
 import com.example.Libreria.repositories.AuthorRepository;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 
 @Controller
 public class AuthorController {
     
-    private final AuthorRepository repo;
+
+    final AuthorRepository repo;
+    
 
     public AuthorController(AuthorRepository repo){
         this.repo=repo;
     }
 
-    @GetMapping("/")
-    public String index(Model model){
-
-        model.addAttribute("authors",repo.findAll());
+    @GetMapping("")
+    public String home() {
         return "index";
     }
+    
 
-    @GetMapping("/create")
-    public String create(){
-        return "create";
+    @GetMapping("/authors")
+    public String index(Model model) {
+        model.addAttribute("authors",repo.findAll());
+        return "authors/index";
     }
 
-    @PostMapping("/store")
-    public String store(Author author){
-        repo.save(author);
-        return  "redirect:/";
+    @GetMapping("/authors/create")
+    public String create() {
+        return "/authors/create";
     }
 
-    @GetMapping("/show")
+    @PostMapping("/authors/store")
+    public String store(Author a) {
+        repo.save(a);
+        return "redirect:/authors";
+    }
+
+    @GetMapping("/authors/show")
     public String show(Model model,Long id){
-        model.addAttribute("author", repo.findById(id).orElse(null));
-        return "show";
+        model.addAttribute("author",repo.findById(id).orElse(null));
+        return "/authors/show";
+    }
+
+    @GetMapping("/authors/edit")
+    public String edit(Model model,Long id){
+        model.addAttribute("author",repo.findById(id).orElse(null));
+        return "/authors/edit";
     }
     
-
-    @GetMapping("/edit")
-    public String edit(Model model,Long id) {
-        model.addAttribute("author", repo.findById(id).orElse(null));
-        return "edit";
-    }
-
-    @PostMapping("/update")
-    public String update(Author author) {
+    @PostMapping("/authors/update")
+    public String update(Author author){
         repo.save(author);
-        return "redirect:/";
+        return "redirect:/authors";
     }
 
-    @PostMapping("/delete")
-    public String delete(Long id) {
-        
+    @PostMapping("/authors/delete")
+    public String delete(Long id){
         repo.deleteById(id);
-        return "redirect:/";
+        return "redirect:/authors";
     }
-    
 
 }

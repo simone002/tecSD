@@ -1,12 +1,21 @@
-<h2>Autori</h2>
+<h1>Operazioni sugli autori</h1>
 
-<form th:each="a:${authors}">
-    Nome: <span th:text="${a.nome}"></span>
-    <button formaction="/show">Dettagli</button>
-    <button formaction="/edit">Edita</button>
-    <input type="hidden" name="id" th:value="${a.id}">
-</form> 
-        
-<form action="/create"> 
-    <button>inserisci nuovo autore</button>
+<form action="/authors">
+    <button>vedi tutti</button>
+</form>
+
+per inserire
+<form action="/authors/create">
+    <button>inserisci</button>
+</form>
+
+<h1>Operazioni sugli Libri</h1>
+
+<form action="/books">
+    <button>vedi tutti</button>
+</form>
+
+per inserire
+<form action="/books/create">
+    <button>inserisci</button>
 </form>
