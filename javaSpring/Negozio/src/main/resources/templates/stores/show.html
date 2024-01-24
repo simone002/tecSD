@@ -1,0 +1,20 @@
+<h2>Negozio: <span th:text="${store.id}"></span></h2>
+
+Nome: <span th:text="${store.name}"></span><br>
+Sede: <span th:text="${store.city}"></span><br>
+<form action="/stores/edit" method="GET">
+    <button>edita</button>
+    <input type="hidden" name="id" th:value="${store.id}">
+</form>
+
+<h2>Prodotti: </h2>
+
+<form th:each="p:${store.products}">
+    <ul>
+        <li>Prodotto: <span th:text="${p.name}"></span></li>
+        <button formaction="/products/show">mostra dettagli</button>
+        <input type="hidden" name="id" th:value="${p.id}">
+    </ul>
+</form>
+
+<a href="/"><button>torna indietro</button>

@@ -1,0 +1,18 @@
+<h1>edita Prodotto</h1>
+
+<form action="/products/update" method="POST">
+    nome: <input type="text" name="name" th:value="${product.name}" required> <br>
+    prezzo: <input type="text" name="price" th:value="${product.price}" required><br>
+    quantity: <input type="text" name="quantity" th:value="${product.quantity}" required> <br>
+    <input type="hidden" name="store" th:value="${product.store.id}" required> <br>
+    <input type="hidden" name="id" th:value="${product.id}">
+    <button>update</button>
+</form>
+
+<form action="/products/delete" method="POST">
+    <input type="hidden" name="id" th:value="${product.id}">
+    <button>delete</button>
+</form>
+
+<br>
+<a href="/"><button>torna indietro</button>

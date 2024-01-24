@@ -1,0 +1,13 @@
+<form action="/stores/update" method="POST">
+    <input type="text" name="name" th:value="${store.name}" required><br>
+    <input type="text" name="city" th:value="${store.city}" required><br>
+    <button>aggiorna</button>
+    <input type="hidden" name="id" th:value="${store.id}">
+</form>
+
+<form action="/stores/delete" method="POST">
+    <button>delete</button>
+    <input type="hidden" name="id" th:value="${store.id}">
+</form>
+
+<a href="/"><button>torna indietro</button>

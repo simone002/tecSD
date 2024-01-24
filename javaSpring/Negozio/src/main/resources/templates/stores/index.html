@@ -1,0 +1,10 @@
+<h1>Negozi</h1>
+
+<form th:each="s:${stores}">
+    <ul>
+        <li>Nome <span th:text="${s.name}"></span>
+        <button formaction="/stores/show">mostra dettagli</button>
+        <input type="hidden"  name="id" th:value="${s.id}"></li>
+    </ul>
+</form>
+<a href="/"><button>torna indietro</button>

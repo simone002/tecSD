@@ -1,0 +1,21 @@
+<h2>Product: <span th:text="${product.id}"></span></h2>
+
+Nome: <span th:text="${product.name}"></span><br>
+Prezzo: <span th:text="${product.price}"></span><br>
+Quantity: <span th:text="${product.quantity}"></span><br>
+<form action="/products/edit" >
+    <input type="hidden" name="id" th:value="${product.id}">
+    <button>edita</button>
+</form>
+<form action="/products/compra" method="post">
+    <button>compra</button>
+    <input type="hidden" name="id" th:value="${product.id}">
+</form>
+
+<form>
+    Negozio: <span th:text="${product.store.name}"></span>
+    <button formaction="/stores/show">mostra dettagli</button>
+    <input type="hidden" name="id" th:value="${product.store.id}">
+</form>
+
+<a href="/"><button>torna indietro</button>

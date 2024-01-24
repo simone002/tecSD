@@ -1,0 +1,11 @@
+<h1>Product: </h1>
+
+<form th:each="p:${products}">
+    <ul>
+        <li>
+           Nome: <span th:text="${p.name}"></span>
+            <button formaction="/products/show" method="GET">mostra dettagli</button>
+            <input type="hidden" name="id" th:value="${p.id}">
+        </li>
+    </ul>
+</form>
